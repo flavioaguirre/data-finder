@@ -1,0 +1,27 @@
+# Virtual Environments
+.venv/
+env/
+
+# Temporary Python Files
+__pycache__/
+*.pyc
+
+# Pytest Cache
+.pytest_cache/
+
+# Temporary Jupyter Notebook Files
+.ipynb_checkpoints/
+
+# Local Reports
+coverage/
+htmlcov/
+
+# Logs
+logs/
+*.log
+
+# Build artifacts
+artifacts/
+build/
+dist/
+*.egg-info/

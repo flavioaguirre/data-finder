@@ -1,0 +1,26 @@
+[project]
+name = "price-reader"
+version = "0.1.0"
+description = "App para desktop, minimalista y escalable para consultar datos desde Excel con Flet"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Flavio Aguirre" }]
+
+dependencies = [
+  "flet>=0.25.0",
+  "polars>=1.10.0",
+  "pyarrow>=17.0.0",
+  "openpyxl>=3.1.4",
+  "pydantic>=2.9.0",
+  "pydantic-settings>=2.5.2",
+  "loguru>=0.7.2",
+  "fastapi>=0.115.0",
+  "uvicorn>=0.30.0",
+]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "UP"]
