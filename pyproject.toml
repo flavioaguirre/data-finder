@@ -1,10 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "price-reader"
+name = "data-finder"
 version = "0.1.0"
-description = "App para desktop, minimalista y escalable para consultar datos desde Excel con Flet"
+description = "App de escritorio, minimalista y escalable para consultar datos desde Excel con Flet"
 readme = "README.md"
 requires-python = ">=3.10"
-authors = [{ name = "Flavio Aguirre" }]
+authors = [{ name = "Flavio Aguirre", email = "flavioaguirre0@gmail.com" }]
+license = { text = "Proprietary" }
+keywords = ["excel", "flet", "inventory", "pricing", "polars", "fastapi"]
+urls = {
+  "repository" = "https://github.com/flavioaguirre/data-finder",
+}
 
 dependencies = [
   "flet>=0.25.0",
@@ -15,11 +24,38 @@ dependencies = [
   "pydantic-settings>=2.5.2",
   "loguru>=0.7.2",
   "fastapi>=0.115.0",
-  "uvicorn>=0.30.0",
+  "uvicorn[standard]>=0.30.0"
 ]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=7.0",
+  "hypothesis>=6.0"
+]
+dev = [
+  "black>=24.0",
+  "ruff>=0.5.0",
+  "mypy>=1.10.0",
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+  "types-openpyxl"
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+filterwarnings = ["ignore::PendingDeprecationWarning"]
 
 [tool.black]
 line-length = 100
+target-version = ["py310"]
 
 [tool.ruff]
 line-length = 100
